@@ -27,7 +27,8 @@ public:
             }
             column_end--;
 
-            if(row_start<=row_end){
+            if (row_start <= row_end)
+            {
                 for (int col = column_end; col >= column_start; col--)
                 {
                     v.push_back(matrix[row_end][col]);
@@ -35,7 +36,8 @@ public:
                 row_end--;
             }
 
-            if(column_start<=column_end){
+            if (column_start <= column_end)
+            {
                 for (int row = row_end; row >= row_start; row--)
                 {
                     v.push_back(matrix[row][column_start]);
