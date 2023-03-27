@@ -6,23 +6,32 @@ using namespace std;
 // } Driver Code Ends
 //User function Template for C++
 
+// The Time Complexity is below program O(nLog(leaves)) and is based on Sieve.
+
 class Solution {
   public:
-   int unvisitedLeaves(int N, int leaves, int frogs[]) {
-        // Code here
-
-    std::bitset<1000000> visited;
-    for (int i = 0; i < N; i++) {
-        int num = frogs[i];
-        if (num <= leaves && !visited[num]) {
-            for (int j = num; j <= leaves; j += num) {
-                visited.set(j);
+    int unvisitedLeaves(int N, int leaves, int frogs[])
+    {
+        bool visited[leaves+1]={0};
+        for (int i = 0; i < N; i++)
+        {
+            int num = frogs[i];
+            if (num <= leaves && !visited[num])
+            {
+                for (int j = num; j <= leaves; j += num)
+                {
+                    visited[j]=true;
+                }
             }
         }
-    }
-    int unvisited =leaves - visited.count();
-  
-    return unvisited;
+        
+        int ans=0;
+        for(int i=1;i<=leaves;i++){
+            if(!visited[i]){
+                ans++;
+            }
+        }
+        return ans;
     }
 };
 
