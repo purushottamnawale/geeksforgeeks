@@ -24,7 +24,7 @@ set<int> setInsert(int arr[], int n)
     return s;
 }
 
-void setDisplay(set<int> s)
+void setDisplay(set<int> s)Swap the objects
 {
     for (auto &i : s)
     {
