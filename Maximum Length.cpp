@@ -25,6 +25,8 @@ public:
 };
 
 """
+maxNum <= 2 * (a + b + c - maxNum + 1)
+
 a=4 b=1 c=0
 aabaa
 4<=2*(4+1+0-4+1)
@@ -45,6 +47,12 @@ aabaabaacaa
 8<=2*(3+1)
 8<=2*(4)
 
+a=3 b=3 c=3
+abcabcabc
+3<=2*(3+3+3-3+1)
+3<=2*(6+1)
+3<=2*(7)
+
 
 a=11 b=2 c=2
 aabaacaabaacaaa
@@ -54,7 +62,7 @@ aabaacaabaacaaa
 
 We can observe a pattern, for every max character to embedded (max two repetition), there is a smaller character
 Additionally, two extra characters can be tolerated at the end of the string. 
-The + 1 in the formula is for the extra last two characters.
+The +1 in the formula is for the extra last two characters.
 """
 
 //{ Driver Code Starts.
