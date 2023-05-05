@@ -41,6 +41,7 @@ i
 3     1 3 3 | 1
 4     1 4 6 | 4 1
 
+Answer = 6
 We starting the loop from top to bottom (1 to n) and right to left (r to 0)
 */
 
