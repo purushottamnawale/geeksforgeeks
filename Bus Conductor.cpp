@@ -7,6 +7,20 @@ using namespace std;
 // } Driver Code Ends
 // User function Template for C++
 
+/*
+chairs     = [2,2,6,6] 
+passengers = [1,3,2,6]
+
+sort()
+chairs     = [2 2 6 6]
+passengers = [1 2 3 6]
+
+chairs[i] - passengers[i]
+
+ans = [1 0 3 0]
+ans = 4
+*/
+
 class Solution
 {
 public:
