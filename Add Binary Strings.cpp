@@ -9,27 +9,73 @@ class Solution
 public:
     string addBinary(string A, string B)
     {
-        string str = "";
-        int sum, Asum, Bsum, carry = 0;
-        int i = A.length() - 1, j = B.length() - 1;
-
-        while (i != -1 || j != -1 || carry)
+        // Keep the larger string in B
+        if (A.length() > B.length())
         {
-            Asum = (i != -1) ? A[i--] - '0' : 0;
-            Bsum = (j != -1) ? B[j--] - '0' : 0;
+            swap(A, B);
+        }
 
-            sum = carry + Asum + Bsum;
-            str += to_string(sum % 2);
-            carry = sum / 2;
-        }
-        j = str.length() - 1;
-        while (str[j] != '1')
+        int diff = B.length() - A.length();
+
+        // Add zeros to smaller string to make both strings of equal length
+        for (int i = 0; i < diff; i++)
         {
-            str.pop_back();
-            j--;
+            A = '0' + A;
         }
-        reverse(str.begin(), str.end());
-        return str;
+
+        string ans;
+        char carry = '0';
+        for (int i = A.length() - 1; i >= 0; i--)
+        {
+            if (A[i] == '1' && B[i] == '1')
+            {
+                if (carry == '1')
+                {
+                    ans.push_back('1'), carry = '1';
+                }
+                else
+                {
+                    ans.push_back('0'), carry = '1';
+                }
+            }
+            else if (A[i] == '0' && B[i] == '0')
+            {
+                if (carry == '1')
+                {
+                    ans.push_back('1'), carry = '0';
+                }
+                else
+                {
+                    ans.push_back('0'), carry = '0';
+                }
+            }
+            else
+            {
+                if (carry == '1')
+                {
+                    ans.push_back('0'), carry = '1';
+                }
+                else
+                {
+                    ans.push_back('1'), carry = '0';
+                }
+            }
+        }
+        if (carry == '1')
+        {
+            ans.push_back('1');
+        }
+
+        reverse(ans.begin(), ans.end());
+
+        // To remove leading zeroes
+        int index = 0;
+        while (index + 1 < ans.length() && ans[index] == '0') // index + 1 < ans.length() is used to avoid removing all zeroes in case of ans = "0"
+        {
+            index++;
+        }
+
+        return ans.substr(index);
     }
 };
 
