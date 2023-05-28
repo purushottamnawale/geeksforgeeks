@@ -59,6 +59,19 @@ int main()
 };
 */
 
+
+/*
+1. If we reach the end of the linked list(curr) before n reaches zero, it means that 
+    the gap of n nodes could not be covered. In such a case, the answer is set to -1, 
+    indicating that the nth node from the end does not exist.
+
+2. If n reaches zero, it implies that we have successfully reached the desired gap of n nodes. 
+    Subsequently, we iterate both the current node (curr) and the saved node (save). 
+    The rationale behind this is as follows: If the curr node eventually reaches null, 
+    it signifies that the save node is precisely n steps behind the current node. 
+    This aligns with our goal of finding the nth node from the end of the linked list.
+*/
+
 // Function to find the data of nth node from the end of a linked list.
 int getNthFromLast(Node *head, int n)
 {
@@ -87,30 +100,25 @@ int getNthFromLast(Node *head, int n)
 
 /* Another approach
 
-int length(Node *head)
-{
-    int l = 0;
-    Node *temp = head;
-    while (temp != NULL)
-    {
-        l++;
-        temp = temp->next;
-    }
-    return l;
-}
-
 int getNthFromLast(Node *head, int n)
 {
+    int length = 0;
     Node *temp = head;
-    int d = length(head) - n;
-    while (temp != NULL && d != 0)
+    while (temp)
     {
         temp = temp->next;
-        d--;
+        length++;
     }
-    if (temp == NULL)
+
+    int steps = length - n;
+    if (steps < 0)
     {
         return -1;
+    }
+    temp = head;
+    for (int i = 0; i < steps; i++)
+    {
+        temp = temp->next;
     }
     return temp->data;
 }
