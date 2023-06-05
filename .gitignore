@@ -1,2 +1,6 @@
-*.exe
-*.class
+*
+!*.cpp
+!*.c
+!*.java
+!*.jav
+!Makefile
