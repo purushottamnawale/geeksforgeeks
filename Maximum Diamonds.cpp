@@ -4,6 +4,21 @@
 using namespace std;
 
 // } Driver Code Ends
+/*
+{2,1,7,4,2}
+In priority Queue:
+{7,4,2,2,1}
+
+K=3, ans=7, push 7/2=3, delete 7
+{4,3,2,2,1}
+
+K=2, ans=7+4=11, push 4/2=2, delete 4
+{3,2,2,2,1}
+
+K=1, ans=7+4+3=14, push 3/2=1, delete 3
+{2,2,2,1,1}
+
+*/
 
 class Solution
 {
