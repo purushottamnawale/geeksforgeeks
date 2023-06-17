@@ -20,19 +20,39 @@ public:
     // return the frequency of k
     int findFrequency(queue<int> &q, int k)
     {
-        int freq = 0;
-        queue<int> temp = q;
-        while (!temp.empty())
+        int ans = 0;
+        int n = q.size();
+        while (n--)
         {
-            if (temp.front() == k)
+            int it = q.front();
+            q.pop();
+            if (it == k)
             {
-                freq += 1;
+                ans++;
             }
-            temp.pop();
+            q.push(it);
         }
-        return freq;
+        return ans;
     }
 };
+
+/*
+Another Method:
+int findFrequency(queue<int> &q, int k)
+{
+    int freq = 0;
+    queue<int> temp = q;
+    while (!temp.empty())
+    {
+        if (temp.front() == k)
+        {
+            freq += 1;
+        }
+        temp.pop();
+    }
+    return freq;
+}
+*/
 
 //{ Driver Code Starts.
 int main()
