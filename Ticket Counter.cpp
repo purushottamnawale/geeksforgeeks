@@ -4,8 +4,35 @@ using namespace std;
 
 // } Driver Code Ends
 
+class Solution
+{
+public:
+    int distributeTicket(int N, int K)
+    {
+        int left = 1;
+        int right = N;
+        while (left < right)
+        {
+            int kk = K;
+            while (left < right && kk--)
+            {
+                left++;
+            }
+            kk = K;
+            while (left < right && kk--)
+            {
+                right--;
+            }
+        }
+        return left;
+    }
+};
+
 /*
+Alternate Solution:
+
 Let K=3 for below explaination
+
 Given, N,K
 m = N / K - No. of Groups of size K
 r = N % K - Remaining people who doesn't belong to any group
@@ -18,11 +45,13 @@ m is even & r!=0
 _____ _____ ___ _______ ________
 Ans=8
 
+
 Case 2)
 m is even & r==0
 1 2 3 4 5 6 7 8 9 10 11 12              K*(m/2) + 1
 _____ _____ _____ ________
 Ans=9
+
 
 Case 3)
 m is odd & r!=0
@@ -30,38 +59,41 @@ m is odd & r!=0
 _____ _____ _ ______
 Ans=7
 
+
 Case 4)
 m is odd & r==0
 1 2 3 4 5 6 7 8 9                       K*(m/2 + 1)
 _____ _____ _____
 Ans=6
-*/
 
-class Solution
+
+int distributeTicket(int N, int K)
 {
-public:
-    int distributeTicket(int N, int K)
+    int m = N / K;
+    int r = N % K;
+    // m is even and r !=0
+    if (m % 2 == 0 && r)
     {
-        int m = N / K;
-        int r = N % K;
-        if (m % 2 == 0 && r)
-        {
-            return K * (m / 2) + r;
-        }
-        if (m % 2 == 0 && !r)
-        {
-            return K * (m / 2) + 1;
-        }
-        if (m % 2 && r)
-        {
-            return K * (m / 2 + 1) + 1;
-        }
-        if (m % 2 && r == 0)
-        {
-            return K * (m / 2 + 1);
-        }
+        return K * (m / 2) + r;
     }
-};
+    // m is even and r ==0
+    if (m % 2 == 0 && !r)
+    {
+        return K * (m / 2) + 1;
+    }
+    // m is odd and r !=0
+    if (m % 2 && r)
+    {
+        return K * ((m / 2) + 1) + 1;
+    }
+    // m is odd and r ==0
+    if (m % 2 && r == 0)
+    {
+        return K * ((m / 2) + 1);
+    }
+}
+
+*/
 
 //{ Driver Code Starts.
 
@@ -80,6 +112,7 @@ int main()
 
         Solution obj;
         int res = obj.distributeTicket(N, K);
+
 
         cout << res << endl;
     }
