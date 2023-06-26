@@ -45,24 +45,29 @@ Answer = 6
 We starting the loop from top to bottom (1 to n) and right to left (r to 0)
 */
 
-
-class Solution{
+class Solution
+{
 public:
-    int nCr(int n, int r){
-        if(n<r){
+    int nCr(int n, int r)
+    {
+        if (n < r) // nCr = 0 if n < r
+        {
             return 0;
         }
-        if((n-r)<r){ // nCr = nCn-r
-            r=n-r; 
+        if ((n - r) < r) // nCr = nCn-r   ...Property
+        {
+            r = n - r; // Avoids extra calculations
         }
-        int mod=1e9+7;
+        int mod = 1e9 + 7;
 
-        int dp[r+1];
-        memset(dp,0,sizeof(dp));
-        dp[0]=1; // 0C0 = 1
-        for(int i=1;i<=n;i++){
-            for(int j=min(i,r);j>0;j--){  
-                dp[j]=(dp[j]+dp[j-1])%mod; 
+        int dp[r + 1];
+        memset(dp, 0, sizeof(dp));
+        dp[0] = 1; // 0C0 = 1
+        for (int i = 1; i <= n; i++)
+        {
+            for (int j = min(i, r); j > 0; j--) // min(i,r) avoids extra calculations
+            {
+                dp[j] = (dp[j] + dp[j - 1]) % mod;
             }
         }
         return dp[r];
@@ -71,15 +76,17 @@ public:
 
 //{ Driver Code Starts.
 
-int main(){
+int main()
+{
     int t;
-    cin>>t;
-    while(t--){
+    cin >> t;
+    while (t--)
+    {
         int n, r;
-        cin>>n>>r;
-        
+        cin >> n >> r;
+
         Solution ob;
-        cout<<ob.nCr(n, r)<<endl;
+        cout << ob.nCr(n, r) << endl;
     }
     return 0;
 }
