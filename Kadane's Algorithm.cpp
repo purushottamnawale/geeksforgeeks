@@ -11,8 +11,7 @@ public:
     // Function to find the sum of contiguous subarray with maximum sum.
     long long maxSubarraySum(int arr[], int n)
     {
-        int maxSum = INT_MIN;
-        int currSum = 0;
+        long long int maxSum = INT_MIN, currSum = 0;
         for (int i = 0; i < n; i++)
         {
             currSum += arr[i];
