@@ -28,6 +28,31 @@ public:
     }
 };
 
+/*
+Another approach using recursion:
+stack<int> recur(stack<int> &St, int X)
+{
+    if (St.size() == 0)
+    {
+        St.push(X);
+    }
+    else
+    {
+        int y = St.top();
+        St.pop();
+        St = recur(St, X);
+        St.push(y);
+    }
+    return St;
+}
+stack<int> insertAtBottom(stack<int> St, int X)
+{
+    St = recur(St, X);
+    return St;
+}
+*/
+
+
 //{ Driver Code Starts.
 
 int main()
