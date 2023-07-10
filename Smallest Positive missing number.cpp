@@ -47,33 +47,6 @@ public:
     }
 };
 
-/*
-int missingNumber(int arr[], int n)
-{
-    int check[n + 1];
-    for (int i = 1; i <= n; i++)
-    {
-        check[i] = false;
-    }
-    int sum = -1;
-    for (int i = 0; i < n; i++)
-    {
-        if (arr[i] > 0)
-        {
-            check[arr[i]] = true;
-        }
-    }
-    for (int i = 1; i <= n; i++)
-    {
-        if (check[i] == false)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
-*/
-
 //{ Driver Code Starts.
 
 int missingNumber(int arr[], int n);
