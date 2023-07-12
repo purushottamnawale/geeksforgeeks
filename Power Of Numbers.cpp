@@ -29,14 +29,14 @@ public:
         {
             return 1;
         }
-        long long int temp = power(N, R / 2);
+        long long int ans = power(N, R / 2);
         if (R % 2 == 0) // If R is even
         {
-            return (temp % mod * temp % mod) % mod;
+            return (ans % mod * ans % mod) % mod;
         }
         else // If R is odd
         {
-            return (N % mod * temp % mod * temp % mod) % mod;
+            return (N % mod * ans % mod * ans % mod) % mod;
         }
     }
 };
