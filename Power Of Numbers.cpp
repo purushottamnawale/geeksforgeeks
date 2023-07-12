@@ -4,27 +4,39 @@ using namespace std;
 
 // } Driver Code Ends
 
+/*
+Using Recursion:
+
+12 ^ 21 = 12 * (12 ^ 20)
+
+21 ^ 12 = 21 ^ 6 * 21 ^ 6
+
+
+Time Complexity: O(logR)
+Space Complexity: O(logR)
+*/
 class Solution
 {
 public:
-    // You need to complete this fucntion
-
     long long power(int N, int R)
     {
-        // Your code here
         int mod = 1e9 + 7;
+        if (N == 0)
+        {
+            return 0;
+        }
         if (R == 0)
         {
             return 1;
         }
-        long long temp = power(N, R / 2);
-        if (R % 2 == 0)
+        long long int temp = power(N, R / 2);
+        if (R % 2 == 0) // If R is even
         {
-            return (temp * temp) % mod;
+            return (temp % mod * temp % mod) % mod;
         }
-        else
+        else // If R is odd
         {
-            return (N * ((temp * temp) % mod)) % mod;
+            return (N % mod * temp % mod * temp % mod) % mod;
         }
     }
 };
