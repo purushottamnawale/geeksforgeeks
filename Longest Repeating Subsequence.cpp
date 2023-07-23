@@ -5,11 +5,25 @@ using namespace std;
 // } Driver Code Ends
 
 /*
+Longest Repeating Subsequence:
+
 Input:
-1 AABEBCDD
+1 abacbc
 
 Output:
 3
+
+      0  1  2  3  4  5  6
+      -  a  b  a  c  b  c
+
+0 -   0  0  0  0  0  0  0
+1 a   0  0  0  1  1  1  1
+2 b   0  0  0  1  1  2  2
+3 a   0  1  1  1  1  2  2
+4 c   0  1  1  1  1  2  3
+5 b   0  1  2  2  2  2  3
+6 c   0  1  2  2  3  3  3
+
 */
 
 class Solution
@@ -32,7 +46,7 @@ public:
         {
             for (int j = 1; j <= n; j++)
             {
-                if (str[i - 1] == s[j - 1] && i != j)
+                if (str[i - 1] == s[j - 1] && i != j) // LCS with itself, except i!=j
                 {
                     dp[i][j] = 1 + dp[i - 1][j - 1];
                 }
