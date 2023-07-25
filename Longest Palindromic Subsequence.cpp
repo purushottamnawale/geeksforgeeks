@@ -7,6 +7,30 @@ using namespace std;
 // } Driver Code Ends
 // User function Template for C++
 
+/*
+Longest Palindromic Subsequence:
+
+Input:
+1 bbabcbcab
+
+Output:
+7
+
+      0  1  2  3  4  5  6  7  8  9
+      -  b  a  c  b  c  b  a  b  b
+
+0 -   0  0  0  0  0  0  0  0  0  0
+1 b   0  1  1  1  1  1  1  1  1  1
+2 b   0  1  1  1  2  2  2  2  2  2
+3 a   0  1  2  2  2  2  2  3  3  3
+4 b   0  1  2  2  3  3  3  3  4  4
+5 c   0  1  2  3  3  4  4  4  4  4
+6 b   0  1  2  3  4  4  5  5  5  5
+7 c   0  1  2  3  4  5  5  5  5  5
+8 a   0  1  2  3  4  5  5  6  6  6
+9 b   0  1  2  3  4  5  6  6  7  7
+*/
+
 class Solution
 {
 public:
