@@ -44,60 +44,11 @@ Input:
 1 10
 1 2 3 4 5 6 7 8 9 10
 
-*/
+Output:
+1 3 7 10
 
-// class Solution
-// {
-// public:
-//     // Function to return list containing elements of right view of binary tree.
-//     vector<int> rightView(Node *root)
-//     {
-//         vector<int> ans;
-//         if (!root)
-//         {
-//             return ans;
-//         }
-//         queue<Node *> q;
-//         q.push(root);
-//         while (!q.empty())
-//         {
-//             int size = q.size(); // Current size of the queue, which represents the number of nodes at the current level
-//             int counter = 0;
-//             while (counter < size - 1) // Traversing all the nodes at the current level, except the last one
-//             {
-//                 Node *temp = q.front();
-//                 q.pop();
-//                 if (temp->left)
-//                 {
-//                     q.push(temp->left);
-//                 }
-//                 if (temp->right)
-//                 {
-//                     q.push(temp->right);
-//                 }
-//                 counter++;
-//             }
-//             ans.push_back(q.front()->data); // Pushing the last node of the current level
-//             if (q.front()->left)
-//             {
-//                 q.push(q.front()->left);
-//             }
-//             if (q.front()->right)
-//             {
-//                 q.push(q.front()->right);
-//             }
-//             q.pop();
-//         }
-//         return ans;
-//     }
-// };
+Alternate Solution:
 
-
-/*
-
-*/
-class Solution
-{
 private:
     void solve(Node *root, vector<int> &ans, int level)
     {
@@ -116,6 +67,72 @@ public:
     {
         vector<int> ans;
         solve(root, ans, 0);
+        return ans;
+    }
+
+
+solve(1)
+    solve(3)
+        solve(7)
+            return
+            return
+        solve(6)
+            return
+            return
+    solve(2)
+        solve(5)
+            return
+            return
+        solve(4)
+            return
+            solve(8)
+                return
+                return
+
+*/
+
+class Solution
+{
+public:
+    // Function to return list containing elements of right view of binary tree.
+    vector<int> rightView(Node *root)
+    {
+        vector<int> ans;
+        if (!root)
+        {
+            return ans;
+        }
+        queue<Node *> q;
+        q.push(root);
+        while (!q.empty())
+        {
+            int size = q.size(); // Current size of the queue, which represents the number of nodes at the current level
+            int counter = 0;
+            while (counter < size - 1) // Traversing all the nodes at the current level, except the last one
+            {
+                Node *temp = q.front();
+                q.pop();
+                if (temp->left)
+                {
+                    q.push(temp->left);
+                }
+                if (temp->right)
+                {
+                    q.push(temp->right);
+                }
+                counter++;
+            }
+            ans.push_back(q.front()->data); // Pushing the last node of the current level
+            if (q.front()->left)
+            {
+                q.push(q.front()->left);
+            }
+            if (q.front()->right)
+            {
+                q.push(q.front()->right);
+            }
+            q.pop();
+        }
         return ans;
     }
 };
