@@ -18,12 +18,58 @@ struct Node
 
 // } Driver Code Ends
 // Function to find the lowest common ancestor in a BST.
+
+/*
+Lowest Common Ancestor in a BST:
+
+Example 1:
+Input:
+1
+5 4 6 3 N N 7 N N N 8
+7 8
+1
+
+Output:
+7
+
+Example 2:
+Input:
+1
+20 8 22 4 12 N N N N 10 14
+4 12
+1
+
+Output:
+8
+
+
+Another Apporoach: Recursive
+
+Node *LCA(Node *root, int n1, int n2)
+{
+    if (root == NULL) // base case
+    {
+        return NULL;
+    }
+
+    if (n1 < root->data and n2 < root->data) // If both n1 and n2 are smaller than data at current node, we call the function recursively for finding LCA in the left subtree.
+    {
+        return LCA(root->left, n1, n2);
+    }
+    if (n1 > root->data and n2 > root->data) // If both n1 and n2 are greater than data at current node, we call the function recursively for finding LCA in the right subtree.
+    {
+        return LCA(root->right, n1, n2);
+    }
+
+    return root;
+}
+
+*/
 class Solution
 {
 public:
     Node *LCA(Node *root, int n1, int n2)
     {
-        // Your code here
         Node *temp = root;
         if (!root)
         {
