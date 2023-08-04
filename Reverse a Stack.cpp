@@ -7,6 +7,31 @@ using namespace std;
 // } Driver Code Ends
 // User function Template for C++
 
+/*
+Reverse a Stack:
+
+Input:
+1 3   
+4 5 7
+
+Output:
+7 5 4
+
+Explanation:
+
+Reverse(4 5 7)
+    Reverse(5 7)
+        Reverse(7)
+            Reverse()
+                Return
+            InsertAtBottom(,7)
+                Return 7
+        InsertAtBottom(7,5)
+            return 7 5
+    InsertAtBottom(7 5,4)
+        return 7 5 4
+*/
+
 class Solution
 {
 public:
