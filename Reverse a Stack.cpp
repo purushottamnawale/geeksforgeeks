@@ -11,7 +11,7 @@ using namespace std;
 Reverse a Stack:
 
 Input:
-1 3   
+1 3
 4 5 7
 
 Output:
@@ -30,6 +30,26 @@ Reverse(4 5 7)
             return 7 5
     InsertAtBottom(7 5,4)
         return 7 5 4
+
+
+Another Approach:
+
+void Reverse(stack<int> &St)
+{
+
+    stack<int> temp = St;
+    while (!St.empty())
+    {
+        St.pop();
+    }
+    // St = stack<int>();
+    while (!temp.empty())
+    {
+        St.push(temp.top());
+        temp.pop();
+    }
+}
+
 */
 
 class Solution
