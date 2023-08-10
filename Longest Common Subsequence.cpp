@@ -55,7 +55,7 @@ public:
             for (int j = 1; j <= y; j++)
             {
                 dp[i][j] = 0;
-                if (s1[i - 1] == s2[j - 1])
+                if (s1[i - 1] == s2[j - 1]) // If characters are same then add 1 to the diagonal element
                 {
                     dp[i][j] = 1 + dp[i - 1][j - 1];
                 }
