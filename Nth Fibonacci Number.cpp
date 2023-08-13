@@ -5,6 +5,18 @@ using namespace std;
 
 // } Driver Code Ends
 // User function Template for C++
+
+/*
+Nth Fibonacci Number:
+Input:
+1 2
+
+Output:
+1
+
+Fibonacci Number:
+
+*/
 class Solution {
   public:
     long long int nthFibonacci(long long int n){
