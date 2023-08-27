@@ -25,12 +25,37 @@ int main()
 
 // User function Template for C++
 
+/*
+Reverse a String
+
+Input:
+1
+Geeks
+
+Output:
+skeeG
+
+
+Alternate Solution:
 string reverseWord(string str)
 {
-    string s = "";
-    for (int i = str.length(); i > -1; i--)
+    int i = 0, j = str.size() - 1;
+    while (i < j)
     {
-        s = s + str[i];
+        swap(str[i++], str[j--]);
     }
-    return s;
+    return str;
 }
+
+*/
+
+string reverseWord(string str)
+{
+    string str1 = "";
+    for (int i = str.size(); i >= 0; i--)
+    {
+        str1 += str[i];
+    }
+    return str1;
+}
+
