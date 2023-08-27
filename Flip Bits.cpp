@@ -4,31 +4,55 @@ using namespace std;
 
 // } Driver Code Ends
 
+/*
+Flip Bits
+
+Example 1)
+Input:
+1
+5
+1 0 0 1 0
+
+Output:
+4
+
+Example 2)
+Input:
+1
+7
+1 0 0 1 0 0 1
+
+Output:
+6
+*/
+
 class Solution
 {
 public:
+    // Solution is based on Kadane's Algorithm
     int maxOnes(int a[], int n)
     {
-        int ans = 0, zero = 0, one = 0;
+        int maxSum, currSum, oneCnt;
+        maxSum = currSum = oneCnt = 0;
+
         for (int i = 0; i < n; i++)
         {
-            if (!a[i])
+            if (a[i] == 1)
             {
-                zero++;
+                oneCnt++;
+                currSum--;
             }
             else
             {
-                zero--;
-                one++;
+                currSum++;
             }
-            ans = max(zero, ans);
-            // cout<<one<<" "<<zero<<" "<<ans<<endl;
-            if (zero < 0)
+            maxSum = max(maxSum, currSum);
+            if (currSum < 0)
             {
-                zero = 0;
+                currSum = 0;
             }
         }
-        return ans + one;
+        return maxSum + oneCnt;
     }
 };
 
