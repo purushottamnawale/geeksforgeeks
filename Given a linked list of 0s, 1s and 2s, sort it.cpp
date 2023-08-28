@@ -80,7 +80,7 @@ oneTail  =           1
 twoHead  =             2 2 2
 twoTail  =                 2
 
-0 0 1 1 1 1 2 2 2
+Answer   = 0 0 1 1 1 1 2 2 2
 */
 
 class Solution
