@@ -106,7 +106,9 @@ Node *removeDuplicates(Node *head)
             delete temp;
         }
         else
+        {
             curr = curr->next;
+        }
     }
     return head;
 }
