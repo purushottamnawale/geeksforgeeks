@@ -56,7 +56,7 @@ Output:
 
 12 15 10 11 5 6 2 3
 
-Explaination:
+Explaination of First Approach:
 
 First iteration until the condition is satisfied
     curr 12 15 10 11 5 6 2 3
@@ -99,6 +99,82 @@ Fourth iteration until the condition is satisfied
     curr 3
     head 15 11 6 3
     curr 15 11 6 3
+
+
+
+Explaination of Second  approach:
+Time Complexity O(N)
+
+head 12 15 10 11 5 6 2 3
+curr 12 15 10 11 5 6 2 3
+prev N
+next N
+
+After Reverse
+head 3 2 6 5 11 10 15 12
+prev 3 2 6 5 11 10 15 12
+curr N
+next N
+
+current 3 2 6 5 11 10 15 12
+maxNode 3 2 6 5 11 10 15 12
+
+First Iteration 2 < 3
+temp    2 6 5 11 10 15 12
+current 3 6 5 11 10 15 12
+maxNode 3 6 5 11 10 15 12
+head    3 6 5 11 10 15 12
+
+Second Iteration 6 < 3 false
+current 6 5 11 10 15 12
+maxNode 6 5 11 10 15 12
+head    3 6 5 11 10 15 12
+
+Third Iteration 5 < 6
+temp    5 11 10 15 12
+current 6 11 10 15 12
+maxNode 6 11 10 15 12
+head    3  6 11 10 15 12
+
+Fourth Iteration 11 < 6 false
+current 11 10 15 12
+maxNode 11 10 15 12
+head     3  6 11 10 15 12
+
+Fifth Iteration 10 < 11
+temp    10 15 12
+current 11 15 12
+maxNode 11 15 12
+head     3  6 11 15 12
+
+Sixth Iteration 15 < 11 false
+current 15 12
+maxNode 15 12
+head     3  6 11 15 12
+
+Seventh Iteration 12 < 15
+temp    12
+current 15
+maxNode 15
+head     3  6 11 15
+
+curr 3 6 11 15
+prev N
+next N
+current 15
+maxNode 15
+head 3 6 11 15
+
+After Reverse
+curr N
+next N
+prev    15 11 6 3
+current 15 11 6 3
+maxNode 15 11 6 3
+head    15 11 6 3
+
+
+
 */
 
 class Solution
@@ -125,10 +201,8 @@ public:
     //     return head;
     // }
 
-    Node *compute(Node *head)
+    Node *Reverse(Node *head)
     {
-        // First reversed the linked list
-
         Node *cur = head;
         Node *prev = NULL;
         Node *next;
@@ -140,16 +214,15 @@ public:
             prev = cur;
             cur = next;
         }
-
         head = prev;
+        return head;
+    }
 
-        // Link list is reversed till here
-
-        // Computing and deleting the nodes which have larger nodes
-        // on the left
+    Node *compute(Node *head)
+    {
+        head = Reverse(head);
 
         Node *current = head;
-
         Node *maxNode = head;
         Node *temp;
 
@@ -168,24 +241,7 @@ public:
             }
         }
 
-        // reversing list again to get required result :-
-
-        cur = head;
-        prev = NULL;
-        next;
-        while (cur != NULL)
-        {
-            next = cur->next;
-            cur->next = prev;
-            prev = cur;
-            cur = next;
-        }
-
-        head = prev;
-
-        // head of list can be returned now
-
-        return head;
+        return Reverse(head);
     }
 };
 
