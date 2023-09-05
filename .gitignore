@@ -1,7 +1,7 @@
-# *.json
+*.json
 *.class
-# .vscode/
-# .gitignore
+.vscode/
+.gitignore
 
 # Ignore all
 *
