@@ -1,6 +1,11 @@
+*.json
+.vscode/
+.gitignore
+.class
+
+# Ignore all
 *
-!*.cpp
-!*.c
-!*.java
-!*.jav
-!Makefile
+# Unignore all with extensions
+!*.*
+# Unignore all dirs
+!*/
