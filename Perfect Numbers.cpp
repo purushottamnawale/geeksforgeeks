@@ -3,20 +3,51 @@
 using namespace std;
 
 // } Driver Code Ends
+
+/*
+Perfect Numbers
+
+O(sqrt(N)) solution
+
+
+Input:
+1
+6
+
+Output:
+1
+
+
+Explanation:
+
+
+*/
 class Solution
 {
 public:
     int isPerfectNumber(long long N)
     {
-        if (N == 1)
-            return 0;
-        long long sum{1};
-        for (int i{2}; i * i <= N; ++i)
+        // To store sum of divisors
+        long long sum = 0;
+        for (long long i = 1; i <= sqrt(N); i++) // Find all divisors and add them
         {
             if (N % i == 0)
-                sum += i + N / i;
+            {
+                // If divisors are equal,only one factor
+                if (N / i == i)
+                    sum += i;
+
+                else // Otherwise two factors
+                {
+                    sum += i;
+                    sum += N / i;
+                }
+            }
         }
-        return (sum == N);
+        sum -= N;
+        if (sum == N)
+            return 1;
+        return 0;
     }
 };
 
