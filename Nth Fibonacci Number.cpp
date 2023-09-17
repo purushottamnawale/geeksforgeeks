@@ -18,8 +18,6 @@ Input:
 Output:
 1
 
-Fibonacci Number:
-
 */
 class Solution {
   public:
