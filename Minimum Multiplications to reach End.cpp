@@ -95,7 +95,7 @@ int main()
 // } Driver Code Ends
 
 /*
-Explaination:
+Explanation:
 arr = {2 5 7}
 start = 3
 end = 30
