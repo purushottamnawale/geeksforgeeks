@@ -98,7 +98,7 @@ Input:
 Output:
 5 3 4 2
 
-Explaination Recursive:
+Explanation Recursive:
 
 deleteNode(1639,2)
     deleteNode(639,1)
