@@ -55,7 +55,7 @@ Input:
 Output:
 0 0 1 1 1 1 2 2 2
 
-Explaination:
+Explanation:
 
 zeroHead = -1 0 0
 zeroTail =  0
