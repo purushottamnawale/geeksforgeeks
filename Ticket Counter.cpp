@@ -4,6 +4,10 @@ using namespace std;
 
 // } Driver Code Ends
 
+/*
+Ticket Counter
+*/
+
 class Solution
 {
 public:
@@ -31,7 +35,7 @@ public:
 /*
 Alternate Solution:
 
-Let K=3 for below explaination
+Let K=3 for below Explanation
 
 Given, N,K
 m = N / K - No. of Groups of size K
