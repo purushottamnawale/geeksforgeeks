@@ -7,6 +7,8 @@ using namespace std;
 // User function template for C++
 
 /*
+Seaching a number
+
 int search(int arr[], int n, int k)
 {
     int *foundElement = std::find(arr, arr + n, k);
@@ -14,7 +16,7 @@ int search(int arr[], int n, int k)
     return index < n ? ++index : -1;
 }
 
-Explaination:
+Explanation:
 
 1. find(arr, arr + n, k): This part uses the find function to search for the value k in the range defined by arr and 
     arr + n. The find function returns an iterator pointing to the first occurrence of k in the range, or it returns 
