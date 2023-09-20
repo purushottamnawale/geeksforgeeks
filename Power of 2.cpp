@@ -16,7 +16,7 @@ Input:
 Output:
 1
 
-Explaination:
+Explanation:
 2 10
 &&
 1 01
