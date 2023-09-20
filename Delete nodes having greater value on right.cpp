@@ -56,7 +56,7 @@ Output:
 
 12 15 10 11 5 6 2 3
 
-Explaination of First Approach:
+Explanation of First Approach:
 
 First iteration until the condition is satisfied
     curr 12 15 10 11 5 6 2 3
@@ -102,7 +102,7 @@ Fourth iteration until the condition is satisfied
 
 
 
-Explaination of Second  approach:
+Explanation of Second  approach:
 Time Complexity O(N)
 
 head 12 15 10 11 5 6 2 3
