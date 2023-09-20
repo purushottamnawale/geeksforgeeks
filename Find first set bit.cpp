@@ -16,7 +16,7 @@ Input:
 Output:
 2
 
-Explaination:
+Explanation:
 TC: O(1) and SC: O(1)
 log2(n & -n) + 1 and log2(n & ~(n - 1)) + 1 both works same.
 
@@ -95,7 +95,7 @@ unsigned int getFirstSetBit(int n)
     return 0;
 }
 
-Above Code Explaination:
+Above Code Explanation:
 18 = 10010
 n = 18
 n = 9 after n/2
