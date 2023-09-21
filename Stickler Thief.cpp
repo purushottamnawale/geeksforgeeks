@@ -48,6 +48,30 @@ for i = 2
     val1 = 120
     val2 = 125
 
+
+Another Approach:
+
+TC: O(N) and SC: O(N)
+int FindMaxSum(int arr[], int n)
+{
+    // Storing sum up to current element including and excluding it in respective variables.
+    if (n == 1)
+    {
+        return arr[0];
+    }
+
+    vector<int> dp(n, 0);
+    dp[0] = arr[0];
+    dp[1] = max(arr[0], arr[1]);
+
+    for (int i = 2; i < n; i++)
+    {
+        dp[i] = max(dp[i - 2] + arr[i], dp[i - 1]); // Sum of current element and previous element which is not adjacent to it in the DP table.
+    }
+
+    return dp[n - 1];
+}
+
 */
 
 class Solution
