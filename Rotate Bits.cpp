@@ -36,6 +36,10 @@ Rotating right by 2 positions
 Performing a bitwise AND with 0xFFFF effectively retains only the least significant 16 bits of the result,
 while all bits beyond the 16th position are set to 0.
 
+d = d % 16 is to ensure that we perform only the necessary rotations. 
+As we know integer n is stored using 16 bits, so rotation of 16 is same as rotation of 0, 
+rotation of 17 is same as rotation of 1 and so on.
+
 
 
 */
@@ -45,7 +49,7 @@ public:
     vector<int> rotate(int n, int d)
     {
         int a, b;
-        d = d % 16;
+        d = d % 16; // 
         a = (n << d | (n >> (16 - d))) & 0xFFFF;
         b = (n >> d | (n << (16 - d))) & 0xFFFF;
         return {a, b};
