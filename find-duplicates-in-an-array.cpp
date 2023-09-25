@@ -17,43 +17,76 @@ Output:
 
 Explanation:
 n = 5
-2 3 1 2 3
+arr = [2, 3, 1, 2, 3]
 
-index = 2
-arr[2] = 1
-arr[2] = 6
+for i = 0
+    index = arr[0]
+    index = 2
+    arr[2] = 1 + 5
+    arr[2] = 6
 
-index = 3
-arr[3] = 2
-arr[3] = 7
+    i = 1
+    index = arr[1]
+    index = 3
+    arr[3] = 2 + 5
+    arr[3] = 7
 
-index = 1
-arr[1] = 3
-arr[1] = 8
+    i = 2
+    index = arr[2]
+    index = 1
+    arr[1] = 3 + 5
+    arr[1] = 8
 
-index = 2
-arr[2] = 6
-arr[2] = 11
+    i = 3
+    index = arr[3]
+    index = 2
+    arr[2] = 6 + 5
+    arr[2] = 11
 
-index = 3
-arr[3] = 7
-arr[3] = 12
+    i = 4
+    index = arr[4]
+    index = 3
+    arr[3] = 7 + 5
+    arr[3] = 12
 
+
+Before:
+arr = [2, 3, 1, 2, 3] 
+
+After:
+arr = [2, 8, 11, 12, 3]
+
+
+for i = 0
+    if (arr[0] / 5) > 1 => 2 / 5 > 1 => 0 > 1 => false
+
+    i = 1
+    if (arr[1] / 5) > 1 => 8 / 5 > 1 => 1 > 1 => false
+
+    i = 2
+    if (arr[2] / 5) > 1 => 11 / 5 > 1 => 2 > 1 => true => ans.push_back(2) => ans = [2]
+
+    i = 3
+    if (arr[3] / 5) > 1 => 12 / 5 > 1 => 2 > 1 => true => ans.push_back(3) => ans = [2, 3]
+
+    i = 4
+    if (arr[4] / 5) > 1 => 3 / 5 > 1 => 0 > 1 => false
+    
 */
 
 class Solution
 {
 public:
+    // TC: O(n) and SC: O(1)
     vector<int> duplicates(int arr[], int n)
     {
-        // First check all the values that are present in an array
-        // Then go to that values as indexes and increment by the size of array
+        // First check all the values that are present in an array.
+        // Then go to that values as indexes and increment by the size of array.
         for (int i = 0; i < n; i++)
         {
             int index = arr[i] % n;
-            // cout<<arr[index]<<n<<arr[index]+n<<endl;
             arr[index] += n;
-        }
+        }        
 
         // Now check which value exists more than once by dividing with the size of array
         bool flag = false;
@@ -67,7 +100,9 @@ public:
             }
         }
         if (!flag)
+        {
             ans.push_back(-1);
+        }
         return ans;
     }
 };
