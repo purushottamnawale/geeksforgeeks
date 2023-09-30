@@ -9,6 +9,14 @@ using namespace std;
 Wave Array
 
 
+Input:
+1
+6
+2 4 7 8 9 10
+
+Output:
+4 2 8 7 10 9
+
 */
 
 class Solution
@@ -20,7 +28,9 @@ public:
     void convertToWave(int n, vector<int> &arr)
     {
         for (int i = 1; i < n; i += 2)
+        {
             swap(arr[i - 1], arr[i]);
+        }
     }
 };
 
