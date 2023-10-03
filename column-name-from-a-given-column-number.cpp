@@ -21,6 +21,7 @@ while 28:
     ans += 'A' + 1 = 'B'
     n = 27 / 26 = 1
 
+    1:
     n = 1 - 1 = 0
     temp = 0 % 26 = 0
     ans += 'A' + 0 = 'BA'
@@ -33,22 +34,23 @@ ans = 'AB'
 class Solution
 {
 public:
-    string colName(long long int n)
+// TC: O(logn) and SC: O(1)
+string colName(long long int n)
+{
+    string ans = "";
+
+    int temp;
+    while (n)
     {
-        string ans = "";
-
-        int temp;
-        while (n)
-        {
-            n--;
-            temp = n % 26;
-            ans += ('A' + temp);
-            n /= 26;
-        }
-
-        reverse(ans.begin(), ans.end());
-        return ans;
+        n--;
+        temp = n % 26;
+        ans += ('A' + temp);
+        n /= 26;
     }
+
+    reverse(ans.begin(), ans.end());
+    return ans;
+}
 };
 
 //{ Driver Code Starts.
