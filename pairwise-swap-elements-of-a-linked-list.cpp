@@ -32,6 +32,37 @@ struct Node
 
 }*head;
 */
+
+/*
+Pairwise swap elements of a linked list
+
+Input:
+1
+8
+1 2 2 4 5 6 7 8
+
+Output:
+2 1 4 2 6 5 8 7
+
+head = 1 2 2 4 5 6 7 8
+
+pairWiseSwap(1 2 2 4 5 6 7 8)
+    pairWiseSwap(2 4 5 6 7 8)
+        pairWiseSwap(5 6 7 8)
+            next = 8 7
+            temp = 6 7 8
+            pairWiseSwap(7 8)
+                next = N
+                temp = 8
+                head = 7 N
+                temp = 8 7
+                head = 8 7
+                return 8 7
+                pairWiseSwap(N)
+                    return NULL
+
+*/
+
 class Solution
 {
 public:
